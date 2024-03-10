@@ -4,15 +4,15 @@ export default class ProductForm extends Component {
   state = {
     value: {
       id: '',
-      tenSp: '',
-      img: '',
-      price: '',
+      sdt: '',
+      namesv: '',
+      email: '',
     },
     errValue: {
       id: '',
-      tenSp: '',
-      img: '',
-      price: '',
+      sdt: '',
+      name: '',
+      email: '',
     },
     isSubmit: false,
   };
@@ -46,9 +46,9 @@ export default class ProductForm extends Component {
             break;
           case 'string':
             {
-              let regex = /^[A-Za-z]+$/;
+              let regex = /^\d{10}$/;
               if (!regex.test(newValue[nameInput])) {
-                message = '* Trường này chỉ chữ';
+                message = '* trường này chỉ nhận SDT';
               }
             }
             break;
@@ -101,16 +101,16 @@ export default class ProductForm extends Component {
     return currentState;
   }
   render() {
-    let { id, tenSp, img, price } = this.state.value;
+    let { id, sdt, nameSV, email } = this.state.value;
     return (
       <div className="container mt-5">
-        <h2>Form Nhập Thông Tin Sản Phẩm</h2>
+        <h2>Form Nhập Thông Tin sinh vieen</h2>
         <form onSubmit={this.handleSubmit} className="border rounded-2 p-4">
           <div className="row">
             <div className="col-md-6">
               <div className="mb-3">
                 <label htmlFor="productId" className="form-label">
-                  ID
+                  ID sinh vien
                 </label>
                 <input
                   data-type="number"
@@ -118,7 +118,7 @@ export default class ProductForm extends Component {
                   className="form-control"
                   name="id"
                   id="xinchaobc64"
-                  placeholder="Nhập ID sản phẩm"
+                  placeholder="Nhập ID sinh viên"
                   value={id}
                   onInput={this.handleChangeInput}
                 />
@@ -128,53 +128,53 @@ export default class ProductForm extends Component {
               </div>
               <div className="mb-3">
                 <label htmlFor="productName" className="form-label">
-                  Tên Sản Phẩm
+                  số điện thoại
                 </label>
                 <input
-                  type="text"
+                  type="phonenumber"
                   data-type="string"
                   className="form-control"
-                  name="tenSp"
-                  value={tenSp}
-                  placeholder="Nhập tên sản phẩm"
+                  name="sdt"
+                  value={sdt}
+                  placeholder="Nhập số điện thoại"
                   onInput={this.handleChangeInput}
                 />
                 <p style={{ height: '30px' }} className="text-danger">
-                  {this.state.errValue.tenSp}
+                  {this.state.errValue.sdt}
                 </p>
               </div>
             </div>
             <div className="col-md-6">
               <div className="mb-3">
-                <label htmlFor="productImage" className="form-label">
-                  Hình Ảnh
+                <label htmlFor="" className="form-label">
+                  họ tên
                 </label>
                 <input
-                  type="url"
+                  type="text"
                   className="form-control"
-                  name="img"
-                  value={img}
-                  placeholder="Nhập URL hình ảnh sản phẩm"
+                  name="nameSV"
+                  value={nameSV}
+                  placeholder="Nhập tên sinh viên"
                   onInput={this.handleChangeInput}
                 />
                 <p style={{ height: '30px' }} className="text-danger">
-                  {this.state.errValue.img}
+                  {this.state.errValue.nameSV}
                 </p>
               </div>
               <div className="mb-3">
                 <label htmlFor="productPrice" className="form-label">
-                  Giá
+                  email
                 </label>
                 <input
-                  type="number"
+                  type="email"
                   className="form-control"
-                  name="price"
-                  value={price}
-                  placeholder="Nhập giá sản phẩm"
+                  name="email"
+                  value={email}
+                  placeholder="Nhập email sinh vien"
                   onInput={this.handleChangeInput}
                 />
                 <p style={{ height: '30px' }} className="text-danger">
-                  {this.state.errValue.price}
+                  {this.state.errValue.email}
                 </p>
               </div>
             </div>
@@ -184,7 +184,7 @@ export default class ProductForm extends Component {
             type="submit"
             className="btn btn-primary"
           >
-            Thêm Sản Phẩm
+            Thêm Sinh vien
           </button>
           <button
             disabled={!this.state.isSubmit}
@@ -194,7 +194,7 @@ export default class ProductForm extends Component {
               this.props.handleUpdateProduct(this.state.value);
             }}
           >
-            Cập nhật sản phẩm
+            Cập nhật sinh vien
           </button>
         </form>
       </div>

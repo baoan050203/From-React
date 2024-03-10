@@ -6,22 +6,22 @@ export default class ReactForm extends Component {
     arrProduct: [
       {
         id: 1,
-        tenSp: 'Iphone',
-        img: 'https://picsum.photos/id/1/200/200',
-        price: 5000,
+        sdt: '01234569874',
+        nameSV: 'bảo an',
+        email: 'vonguyenbaoan050203@gmail.com',
       },
       {
         id: 2,
-        tenSp: 'Samsung',
-        img: 'https://picsum.photos/id/2/200/200',
-        price: 7000,
+        sdt: 'Iphone',
+        nameSV: 'bao ân',
+        email: 'vonguyenbaoan050203@gmail.com',
       },
     ],
     productEdit: {
-      id: 1,
-      tenSp: 'Iphone',
-      img: 'https://picsum.photos/id/1/200/200',
-      price: 5000,
+      // id: 2,
+      // sdt: 'Iphone',
+      // nameSV: 'bao ân',
+      // email: 'vonguyenbaoan050203@gmail.com',
     },
   };
   handleAddProduct = (proClick) => {
@@ -83,11 +83,11 @@ export default class ReactForm extends Component {
               return (
                 <tr key={phone.id}>
                   <td>{phone.id}</td>
-                  <td>{phone.tenSp}</td>
+                  <td>{phone.nameSV}</td>
                   <td>
-                    <img src={phone.img} height={50} alt="" />
+                  {phone.sdt}
                   </td>
-                  <td>{phone.price}</td>
+                  <td>{phone.email}</td>
                   <td>
                     <button
                       onClick={() => {
